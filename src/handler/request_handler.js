@@ -10,6 +10,9 @@ export const displayPokemons = (c) => {
   const type = c.req.param("type") || "all";
   const eta = new Eta({ views: "./public/templates" });
   const filteredPokemon = filterPoekmon(pokemons, type);
-  const page = eta.render("pokemons.html", { pokemons: filteredPokemon });
+  const page = eta.render("pokemons.html", {
+    pokemons: filteredPokemon,
+    selectedType: type,
+  });
   return c.html(page);
 };

@@ -11,32 +11,56 @@
   <div class="main-body">
     <div class="side-bar">
       <ul class="actions">
-        <li><a href="/" class="action" style=--bg:var(--all)> All </a></li>
-        <li><a href="/normal" class="action" style=--bg:var(--normal)> Normal </a></li>
-        <li><a href="/fire" class="action" style=--bg:var(--fire)> Fire </a></li>
-        <li><a href="/water" class="action" style=--bg:var(--water)> Water </a></li>
-        <li><a href="/electric" class="action" style=--bg:var(--electric)> Electric </a></li>
-        <li><a href="/grass" class="action" style=--bg:var(--grass)> Grass </a></li>
-        <li><a href="/ice" class="action" style=--bg:var(--ice)> Ice </a></li>
-        <li><a href="/fighting" class="action" style=--bg:var(--fighting)> Fighting </a></li>
-        <li><a href="/poison" class="action" style=--bg:var(--poison)> Poison </a></li>
-        <li><a href="/ground" class="action" style=--bg:var(--ground)> Ground </a></li>
-        <li><a href="/flying" class="action" style=--bg:var(--flying)> Flying </a></li>
-        <li><a href="/psychic" class="action" style=--bg:var(--psychic)> Psychic </a></li>
-        <li><a href="/bug" class="action" style=--bg:var(--bug)> Bug </a></li>
-        <li><a href="/rock" class="action" style=--bg:var(--rock)> Rock </a></li>
-        <li><a href="/ghost" class="action" style=--bg:var(--ghost)> Ghost </a></li>
-        <li><a href="/dragon" class="action" style=--bg:var(--dragon)> Dragon </a></li>
-        <li><a href="/dark" class="action" style=--bg:var(--dark)> Dark </a></li>
-        <li><a href="/steel" class="action" style=--bg:var(--steel)> Steel </a></li>
-        <li><a href="/fairy" class="action" style=--bg:var(--fairy)> Fairy </a></li>
+        <li><a href="/" class="action <%= it.selectedType === 'all' ? 'active' : '' %>" style=--bg:var(--all)> All </a>
+        </li>
+        <li><a href="/normal" class="action <%= it.selectedType === 'normal' ? 'active' : '' %>"
+            style=--bg:var(--normal)>
+            Normal </a></li>
+        <li><a href="/fire" class="action <%= it.selectedType === 'fire' ? 'active' : '' %>" style=--bg:var(--fire)>
+            Fire
+          </a></li>
+        <li><a href="/water" class="action <%= it.selectedType === 'water' ? 'active' : '' %>" style=--bg:var(--water)>
+            Water </a></li>
+        <li><a href="/electric" class="action <%= it.selectedType === 'electric' ? 'active' : '' %>"
+            style=--bg:var(--electric)> Electric </a></li>
+        <li><a href="/grass" class="action <%= it.selectedType === 'grass' ? 'active' : '' %>" style=--bg:var(--grass)>
+            Grass </a></li>
+        <li><a href="/ice" class="action <%= it.selectedType === 'ice' ? 'active' : '' %>" style=--bg:var(--ice)> Ice
+          </a></li>
+        <li><a href="/fighting" class="action <%= it.selectedType === 'fighting' ? 'active' : '' %>"
+            style=--bg:var(--fighting)> Fighting </a></li>
+        <li><a href="/poison" class="action <%= it.selectedType === 'poison' ? 'active' : '' %>"
+            style=--bg:var(--poison)> Poison </a></li>
+        <li><a href="/ground" class="action <%= it.selectedType === 'ground' ? 'active' : '' %>"
+            style=--bg:var(--ground)> Ground </a></li>
+        <li><a href="/flying" class="action <%= it.selectedType === 'flying' ? 'active' : '' %>"
+            style=--bg:var(--flying)> Flying </a></li>
+        <li><a href="/psychic" class="action <%= it.selectedType === 'psychic' ? 'active' : '' %>"
+            style=--bg:var(--psychic)> Psychic </a></li>
+        <li><a href="/bug" class="action <%= it.selectedType === 'bug' ? 'active' : '' %>" style=--bg:var(--bug)> Bug
+          </a></li>
+        <li><a href="/rock" class="action <%= it.selectedType === 'rock' ? 'active' : '' %>" style=--bg:var(--rock)>
+            Rock </a></li>
+        <li><a href="/ghost" class="action <%= it.selectedType === 'ghost' ? 'active' : '' %>" style=--bg:var(--ghost)>
+            Ghost </a></li>
+        <li><a href="/dragon" class="action <%= it.selectedType === 'dragon' ? 'active' : '' %>"
+            style=--bg:var(--dragon)> Dragon </a></li>
+        <li><a href="/dark" class="action <%= it.selectedType === 'dark' ? 'active' : '' %>" style=--bg:var(--dark)>
+            Dark </a></li>
+        <li><a href="/steel" class="action <%= it.selectedType === 'steel' ? 'active' : '' %>" style=--bg:var(--steel)>
+            Steel </a></li>
+        <li><a href="/fairy" class="action <%= it.selectedType === 'fairy' ? 'active' : '' %>" style=--bg:var(--fairy)>
+            Fairy </a></li>
       </ul>
 
     </div>
     <div class="container">
       <% it.pokemons.forEach((pokemon)=>{ %>
         <div class="card">
-          <div class="img-container" style="background-image: linear-gradient(var(--grass),var(--poison), white)" ;;>
+          <div class="img-container" style="background-image: linear-gradient(<% pokemon.types.forEach((type)=>{ %>
+            var(--<%=type.type.name%>),
+              <% }) %>
+                white)" ;;>
             <img src=<%=pokemon.sprites.other["official-artwork"].front_default, %>
             alt="pokemon image" class="poke-image">
           </div>
