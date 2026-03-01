@@ -1,105 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
+<% const capitalize=(str)=>
+  str ? str[0].toUpperCase() + str.slice(1) : "";
+  %>
 
-<head>
-  <title>Pokedex</title>
-  <link rel="stylesheet" href="styles/colors.css">
-  <link rel="stylesheet" href="styles/style.css">
-</head>
+  <!DOCTYPE html>
+  <html lang="en">
 
-<body>
-  <div class="main-body">
-    <div class="side-bar">
-      <ul class="actions">
-        <li><a href="/" class="action <%= it.selectedType === 'all' ? 'active' : '' %>" style=--bg:var(--all)> All </a>
-        </li>
-        <li><a href="/normal" class="action <%= it.selectedType === 'normal' ? 'active' : '' %>"
-            style=--bg:var(--normal)>
-            Normal </a></li>
-        <li><a href="/fire" class="action <%= it.selectedType === 'fire' ? 'active' : '' %>" style=--bg:var(--fire)>
-            Fire
-          </a></li>
-        <li><a href="/water" class="action <%= it.selectedType === 'water' ? 'active' : '' %>" style=--bg:var(--water)>
-            Water </a></li>
-        <li><a href="/electric" class="action <%= it.selectedType === 'electric' ? 'active' : '' %>"
-            style=--bg:var(--electric)> Electric </a></li>
-        <li><a href="/grass" class="action <%= it.selectedType === 'grass' ? 'active' : '' %>" style=--bg:var(--grass)>
-            Grass </a></li>
-        <li><a href="/ice" class="action <%= it.selectedType === 'ice' ? 'active' : '' %>" style=--bg:var(--ice)> Ice
-          </a></li>
-        <li><a href="/fighting" class="action <%= it.selectedType === 'fighting' ? 'active' : '' %>"
-            style=--bg:var(--fighting)> Fighting </a></li>
-        <li><a href="/poison" class="action <%= it.selectedType === 'poison' ? 'active' : '' %>"
-            style=--bg:var(--poison)> Poison </a></li>
-        <li><a href="/ground" class="action <%= it.selectedType === 'ground' ? 'active' : '' %>"
-            style=--bg:var(--ground)> Ground </a></li>
-        <li><a href="/flying" class="action <%= it.selectedType === 'flying' ? 'active' : '' %>"
-            style=--bg:var(--flying)> Flying </a></li>
-        <li><a href="/psychic" class="action <%= it.selectedType === 'psychic' ? 'active' : '' %>"
-            style=--bg:var(--psychic)> Psychic </a></li>
-        <li><a href="/bug" class="action <%= it.selectedType === 'bug' ? 'active' : '' %>" style=--bg:var(--bug)> Bug
-          </a></li>
-        <li><a href="/rock" class="action <%= it.selectedType === 'rock' ? 'active' : '' %>" style=--bg:var(--rock)>
-            Rock </a></li>
-        <li><a href="/ghost" class="action <%= it.selectedType === 'ghost' ? 'active' : '' %>" style=--bg:var(--ghost)>
-            Ghost </a></li>
-        <li><a href="/dragon" class="action <%= it.selectedType === 'dragon' ? 'active' : '' %>"
-            style=--bg:var(--dragon)> Dragon </a></li>
-        <li><a href="/dark" class="action <%= it.selectedType === 'dark' ? 'active' : '' %>" style=--bg:var(--dark)>
-            Dark </a></li>
-        <li><a href="/steel" class="action <%= it.selectedType === 'steel' ? 'active' : '' %>" style=--bg:var(--steel)>
-            Steel </a></li>
-        <li><a href="/fairy" class="action <%= it.selectedType === 'fairy' ? 'active' : '' %>" style=--bg:var(--fairy)>
-            Fairy </a></li>
-      </ul>
+  <head>
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="styles/colors.css">
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
 
-    </div>
-    <div class="container">
-      <% it.pokemons.forEach((pokemon)=>{ %>
-        <div class="card">
-          <div class="img-container" style="background-image: linear-gradient(<% pokemon.types.forEach((type)=>{ %>
-            var(--<%=type.type.name%>),
-              <% }) %>
-                white)" ;;>
-            <img src=<%=pokemon.sprites.other["official-artwork"].front_default, %>
-            alt="pokemon image" class="poke-image">
-          </div>
+  <body>
+    <div class="main-body">
+      <div class="side-bar">
+        <ul class="actions">
+          <li><a href="/" class="action <%= it.selectedType === 'all' ? 'active' : '' %>" style=--bg:var(--all)> All
+            </a>
+          </li>
+          <li><a href="/normal" class="action <%= it.selectedType === 'normal' ? 'active' : '' %>"
+              style=--bg:var(--normal)>
+              Normal </a></li>
+          <li><a href="/fire" class="action <%= it.selectedType === 'fire' ? 'active' : '' %>" style=--bg:var(--fire)>
+              Fire
+            </a></li>
+          <li><a href="/water" class="action <%= it.selectedType === 'water' ? 'active' : '' %>"
+              style=--bg:var(--water)>
+              Water </a></li>
+          <li><a href="/electric" class="action <%= it.selectedType === 'electric' ? 'active' : '' %>"
+              style=--bg:var(--electric)> Electric </a></li>
+          <li><a href="/grass" class="action <%= it.selectedType === 'grass' ? 'active' : '' %>"
+              style=--bg:var(--grass)>
+              Grass </a></li>
+          <li><a href="/ice" class="action <%= it.selectedType === 'ice' ? 'active' : '' %>" style=--bg:var(--ice)> Ice
+            </a></li>
+          <li><a href="/fighting" class="action <%= it.selectedType === 'fighting' ? 'active' : '' %>"
+              style=--bg:var(--fighting)> Fighting </a></li>
+          <li><a href="/poison" class="action <%= it.selectedType === 'poison' ? 'active' : '' %>"
+              style=--bg:var(--poison)> Poison </a></li>
+          <li><a href="/ground" class="action <%= it.selectedType === 'ground' ? 'active' : '' %>"
+              style=--bg:var(--ground)> Ground </a></li>
+          <li><a href="/flying" class="action <%= it.selectedType === 'flying' ? 'active' : '' %>"
+              style=--bg:var(--flying)> Flying </a></li>
+          <li><a href="/psychic" class="action <%= it.selectedType === 'psychic' ? 'active' : '' %>"
+              style=--bg:var(--psychic)> Psychic </a></li>
+          <li><a href="/bug" class="action <%= it.selectedType === 'bug' ? 'active' : '' %>" style=--bg:var(--bug)> Bug
+            </a></li>
+          <li><a href="/rock" class="action <%= it.selectedType === 'rock' ? 'active' : '' %>" style=--bg:var(--rock)>
+              Rock </a></li>
+          <li><a href="/ghost" class="action <%= it.selectedType === 'ghost' ? 'active' : '' %>"
+              style=--bg:var(--ghost)>
+              Ghost </a></li>
+          <li><a href="/dragon" class="action <%= it.selectedType === 'dragon' ? 'active' : '' %>"
+              style=--bg:var(--dragon)> Dragon </a></li>
+          <li><a href="/dark" class="action <%= it.selectedType === 'dark' ? 'active' : '' %>" style=--bg:var(--dark)>
+              Dark </a></li>
+          <li><a href="/steel" class="action <%= it.selectedType === 'steel' ? 'active' : '' %>"
+              style=--bg:var(--steel)>
+              Steel </a></li>
+          <li><a href="/fairy" class="action <%= it.selectedType === 'fairy' ? 'active' : '' %>"
+              style=--bg:var(--fairy)>
+              Fairy </a></li>
+        </ul>
 
-          <div class="meta-data">
-            <div class="header">
-              <div class="name">
-                <h1 class="name">
-                  <%=pokemon.name%>
-                </h1>
-              </div>
-              <div class="types">
-                <% pokemon.types.forEach((type)=>{ %>
-                  <p class="type <%=type.type.name%>">
-                    <%=type.type.name%>
-                  </p>
-                  <% }) %>
+      </div>
+      <div class="container-wrapper">
 
-              </div>
-            </div>
-
-            <div class="stats">
-              <% pokemon.stats.forEach((stat)=>{ %>
-                <div class="name-power">
-                  <p class="name">
-                    <%= stat.stat.name%>
-                  </p>
-                  <p class="power">
-                    <%= stat.base_stat%>
-                  </p>
-                </div>
-                <% }) %>
-            </div>
-          </div>
+        <div class="search-bar">
+          <form method="GET" action="<%= it.path %>">
+            <input type="text" name="pokemon" placeholder="Search Pokémon..." value="<%= it.searchQuery || '' %>" />
+            <button type="submit">Search</button>
+          </form>
         </div>
-        <% }) %>
+        <div class="container">
+          <% it.pokemons.forEach((pokemon)=>{ %>
+            <div class="card">
+              <div class="img-container" style="background-image: linear-gradient(
+       <%=
+         pokemon.types.map(t => `var(--${t.type.name})`).join(',')
+       %>,
+       white
+     )">
+                <img src=<%=pokemon.sprites.other["official-artwork"].front_default, %>
+                alt="pokemon image" class="poke-image">
+              </div>
 
+              <div class="meta-data">
+                <div class="header">
+                  <div class="name">
+                    <h1 class="name">
+                      <%=capitalize(pokemon.name)%>
+                    </h1>
+                  </div>
+                  <div class="types">
+                    <% pokemon.types.forEach((type)=>{ %>
+                      <p class="type <%=type.type.name%>">
+                        <%=capitalize(type.type.name)%>
+                      </p>
+                      <% }) %>
+
+                  </div>
+                </div>
+
+                <div class="stats">
+                  <% pokemon.stats.forEach((stat)=>{ %>
+                    <div class="name-power">
+                      <p class="name">
+                        <%= capitalize(stat.stat.name)%>
+                      </p>
+                      <p class="power">
+                        <%= stat.base_stat%>
+                      </p>
+                    </div>
+                    <% }) %>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+
+        </div>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 
-</html>
+  </html>
