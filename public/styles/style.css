@@ -170,6 +170,9 @@ body {
   font-size: 14px;
 }
 
+.search-bar input:focus {
+  border-color: var(--type);
+}
 
 .search-bar button {
   padding: 10px 20px;

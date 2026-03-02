@@ -68,7 +68,8 @@
 
         <div class="search-bar">
           <form method="GET" action="<%= it.path %>">
-            <input type="text" name="pokemon" placeholder="Search Pokémon..." value="<%= it.searchQuery || '' %>" />
+            <input type="text" name="pokemon" placeholder="Search Pokémon..." value="<%= it.searchQuery || '' %>"
+              style="--type:var(--<%= it.selectedType %>" ) />
             <button type="submit">Search</button>
           </form>
         </div>
