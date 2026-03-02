@@ -179,6 +179,6 @@ body {
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  background: #333;
+  background: var(--type);
   color: white;
 }
